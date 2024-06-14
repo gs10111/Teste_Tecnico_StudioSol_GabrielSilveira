@@ -49,7 +49,7 @@
    ```sh
    ./build_and_run.bat
    ```
-   Certifique-se atraves do DocekrHub que os contêineres testetecnicostudiosolgabrielsilveira e football-score-api estao em status Running
+   Certifique-se através do DocekrHub que os contêineres testetecnicostudiosolgabrielsilveira e football-score-api estão em status Running
 
 4. **Acessar a Aplicação:**
    - http://localhost:8080/verify
@@ -75,7 +75,7 @@
 ### Banco de Dados
 
 O projeto utiliza um banco de dados MySQL configurado no `docker-compose.yml`. Certifique-se de que as variáveis de ambiente estão configuradas corretamente:
-!!banco em nuuvem!!
+!!banco em nuvem!!
 ```yaml
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://arfo8ynm6olw6vpn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/ws7a44bs27asklgs
