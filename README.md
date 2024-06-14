@@ -49,7 +49,7 @@
    ```sh
    ./build_and_run.bat
    ```
-   Certifiquese atraves do DocekrHub que os containers testetecnicostudiosolgabrielsilveira e football-score-api estao rodando
+   Certifique-se atraves do DocekrHub que os containers testetecnicostudiosolgabrielsilveira e football-score-api estao em status Running
 
 4. **Acessar a Aplicação:**
    - http://localhost:8080/verify
