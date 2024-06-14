@@ -1,86 +1,133 @@
+
 # TesteTecnicoStudioSolGabrielSilveira
 
-Descrição
-Este projeto é uma API web desenvolvida em Java utilizando Spring Boot. A API calcula o número de combinações possíveis de pontuações em um jogo de futebol americano, com base nos critérios fornecidos.
 
-Pré-requisitos
-Antes de começar, certifique-se de ter as seguintes ferramentas instaladas em seu ambiente de desenvolvimento:
+## Sobre o Projeto
 
-Java 17
-Maven
-Docker
-Docker Compose
-Passo a Passo
-1. Clone o Repositório
-Clone o repositório do projeto para a sua máquina local usando o comando abaixo:
+  Uma aplicação  desenvolvida para calcular o número de combinações possíveis de pontuações em um jogo de futebol americano, com base nos critérios fornecidos.
 
-sh
-Copy code
-git clone <URL_DO_REPOSITORIO>
-cd TesteTecnicoStudioSolGabrielSilveira
-2. Configuração do Banco de Dados
-O projeto utiliza um banco de dados MySQL. O docker-compose.yml já está configurado para iniciar um contêiner MySQL.
+## Tecnologias e Ferramentas Utilizadas
 
-3. Build do Projeto
-Execute o seguinte comando para limpar e construir o projeto, garantindo que todos os testes sejam executados:
+- **Spring Boot**: Framework para desenvolvimento de aplicações Spring com mais facilidade e rapidez.
+- **Maven**: Gerenciador de dependências e ferramenta de build.
+- **Docker**: Plataforma para desenvolver, enviar e executar aplicações dentro de contêineres.
+- **Docker Compose**: Ferramenta para definir e gerenciar multi-contêineres Docker.
 
-sh
-Copy code
-mvn clean package
-4. Build e Iniciar os Contêineres com Docker Compose
-Execute o comando abaixo para construir a imagem Docker da aplicação e iniciar os contêineres:
+## Dependências Principais
 
-sh
-Copy code
-docker-compose up --build
-Este comando irá:
+- `spring-boot-starter-web`: Starter para construir aplicações web, incluindo RESTful, usando Spring MVC.
+- `spring-boot-starter-data-jpa`: Starter para usar Spring Data JPA com Hibernate.
+- `mysql-connector-java`: Driver JDBC para MySQL.
+- `spring-boot-starter-test`: Starter para testar aplicações Spring Boot.
 
-Construir a imagem Docker da aplicação.
-Iniciar os contêineres para a aplicação e o banco de dados MySQL.
-5. Acessar a API
-Após iniciar os contêineres, a API estará disponível no seguinte endereço:
+## Como Executar o Projeto
 
-bash
-Copy code
-http://localhost:8080/verify
-6. Testando a API
-Você pode testar a API utilizando uma ferramenta como Postman ou curl. Aqui está um exemplo de como fazer uma requisição utilizando curl:
+### Pré-requisitos
 
-sh
-Copy code
-curl -X POST http://localhost:8080/verify -H "Content-Type: application/json" -d '{"score": "3x15"}'
-A resposta será algo como:
+- JDK 17
+- Maven
+- Docker
+- Docker Compose
 
-json
-Copy code
-{
-    "combinations": 4
-}
-7. Parando os Contêineres
+### Passos para Execução
+
+1. **Clonar o Repositório:**
+    Para clonar o repositório utilize a ferramenta de sua escolha, como por exemplo o Git Bash. 
+    Em caso de uso do Git Bash, abra-o e execute os seguintes comandos:
+   ```sh
+   git clone [URL_DO_REPOSITORIO]
+   cd TesteTecnicoStudioSolGabrielSilveira
+   ```
+
+2. **Instalar e Configurar Maven**
+    !!se necessario!!
+    Veja este vídeo para instalar e configurar o Maven: [Configurar Maven](https://youtu.be/-ucX5w8Zm8s?si=wZOMlt_dxS31dfBx)
+
+3. **Compilar e Construir o Projeto e Imagem Docker:**
+
+    Execute o script `build_and_run.bat` para limpar, compilar e construir a imagem Docker da aplicação e iniciar os contêineres:
+   ```sh
+   ./build_and_run.bat
+   ```
+   Certifiquese atraves do DocekrHub que os containers testetecnicostudiosolgabrielsilveira e football-score-api estao rodando
+
+4. **Acessar a Aplicação:**
+   - http://localhost:8080/verify
+
+5. **Testando a API**
+
+    Você pode testar a API utilizando uma ferramenta como [Postman](https://www.postman.com/) ou [curl](https://curl.se/). Aqui está um exemplo de como fazer uma requisição utilizando `postman`:
+
+    ```Atraves do postman
+     POST http://localhost:8080/verify json'
+    {
+    "score": "3x15"
+    }'
+    ```
+
+    A resposta será algo como:
+    ```json
+    {
+        "combinations": 4
+    }
+    ```
+
+### Banco de Dados
+
+O projeto utiliza um banco de dados MySQL configurado no `docker-compose.yml`. Certifique-se de que as variáveis de ambiente estão configuradas corretamente:
+!!banco em nuuvem!!
+```yaml
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://arfo8ynm6olw6vpn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/ws7a44bs27asklgs
+      - SPRING_DATASOURCE_USERNAME=ia0wc0ah6hnmwatb
+      - SPRING_DATASOURCE_PASSWORD=qvdevqd4ttf4l42s
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_SHOW_SQL=true
+      - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQL8Dialect
+```
+
+### Configurações e Informações Adicionais
+
+- **Arquivo de Configuração**:
+  - Localizado em `src/main/resources/application.properties`.
+  - Contém configurações do banco de dados, parâmetros de inicialização e outras configurações específicas do Spring.
+
+### Parando os Contêineres
+
 Para parar e remover os contêineres Docker, utilize o comando abaixo:
 
-sh
-Copy code
+```sh
 docker-compose down
-8. Executando Testes
+```
+
+### Executando Testes
+
 Para executar os testes da aplicação, utilize o comando:
 
-sh
-Copy code
+```sh
 mvn test
-Problemas Comuns
+```
+
+## Problemas Comuns
+
+### Porta 3306 Ocupada
+
+Se você encontrar um erro indicando que a porta 3306 já está em uso, certifique-se de que não há outra instância do MySQL rodando na sua máquina. Você pode alterar a porta no arquivo `docker-compose.yml` se necessário.
+
+### Variáveis de Ambiente
+
+Certifique-se de que as variáveis de ambiente para o banco de dados estão configuradas corretamente no `docker-compose.yml`.
+
+### Erros de Compilação
+
+Se encontrar erros de compilação, certifique-se de que todas as dependências estão corretamente definidas no `pom.xml`.
 Porta 3306 Ocupada
+
 Se você encontrar um erro indicando que a porta 3306 já está em uso, certifique-se de que não há outra instância do MySQL rodando na sua máquina. Você pode alterar a porta no arquivo docker-compose.yml se necessário.
 
 Variáveis de Ambiente
-Certifique-se de que as variáveis de ambiente para o banco de dados estão configuradas corretamente no docker-compose.yml:
+Certifique-se de que as variáveis de ambiente estao configuradas em seu computador.
 
-yaml
-Copy code
-environment:
-  MYSQL_DATABASE: your_database_name
-  MYSQL_USER: your_username
-  MYSQL_PASSWORD: your_password
-  MYSQL_ROOT_PASSWORD: your_root_password
-Erros de Compilação
-Se encontrar erros de compilação, certifique-se de que todas as dependências estão corretamente definidas no pom.xml.
+## Contato
+
+- **Email**: gsilveira551@gmail.com
