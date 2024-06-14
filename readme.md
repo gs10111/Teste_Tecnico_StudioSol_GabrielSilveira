@@ -120,12 +120,6 @@ Certifique-se de que as variáveis de ambiente para o banco de dados estão conf
 
 ### Erros de Compilação
 
-Se encontrar erros de compilação, certifique-se de que todas as dependências estão corretamente definidas no `pom.xml`.
-Porta 3306 Ocupada
-
-Se você encontrar um erro indicando que a porta 3306 já está em uso, certifique-se de que não há outra instância do MySQL rodando na sua máquina. Você pode alterar a porta no arquivo docker-compose.yml se necessário.
-
-Variáveis de Ambiente
 Certifique-se de que as variáveis de ambiente estao configuradas em seu computador.
 
 ## Contato
