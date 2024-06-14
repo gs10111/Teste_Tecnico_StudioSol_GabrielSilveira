@@ -2,25 +2,38 @@ package com.apipontos.testetecnicostudiosolgabrielsilveira.service;
 
 import org.springframework.stereotype.Service;
 
+
+/**
+ * classe responsavel para calcular o numero de combinacoes possiveis de pontos
+ */
 @Service
+
 public class ScoreCalculator {
 
+
+    /**
+     * @param score pontuacao para a qual calcular as combinacoes possiveis.
+     * @return o numero combinacoes para a pontuacao dada .
+     */
     public int calculateCombinations(int score) {
         if (score < 0) return 0;
 
-        // Array para armazenar o número de combinações para cada valor até `score`
-        int[] dp = new int[score + 1];
-        dp[0] = 1; // Base case: 1 maneira de alcançar 0 pontos
+        int[] combinations = new int[score + 1];
+        combinations[0] = 1;
 
-        // Possíveis pontuações (Field goal, Touchdown, Touchdown + Extra)
         int[] points = {3, 6, 7, 8};
 
         for (int point : points) {
             for (int i = point; i <= score; i++) {
-                dp[i] += dp[i - point];
+                combinations[i] += combinations[i - point];
             }
         }
 
-        return dp[score];
+        return combinations[score];
     }
 }
+
+
+
+
+
