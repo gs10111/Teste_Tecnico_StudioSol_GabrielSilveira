@@ -35,7 +35,7 @@
     Para clonar o repositório utilize a ferramenta de sua escolha, como por exemplo o Git Bash. 
     Em caso de uso do Git Bash, abra-o e execute os seguintes comandos:
    ```sh
-   git clone [URL_DO_REPOSITORIO]
+   git clone [https://github.com/gs10111/TesteTecnicoStudioSolGabrielSilveira.git]
    cd TesteTecnicoStudioSolGabrielSilveira
    ```
 
@@ -49,7 +49,7 @@
    ```sh
    ./build_and_run.bat
    ```
-   Certifique-se atraves do DocekrHub que os containers testetecnicostudiosolgabrielsilveira e football-score-api estao em status Running
+   Certifique-se atraves do DocekrHub que os contêineres testetecnicostudiosolgabrielsilveira e football-score-api estao em status Running
 
 4. **Acessar a Aplicação:**
    - http://localhost:8080/verify
