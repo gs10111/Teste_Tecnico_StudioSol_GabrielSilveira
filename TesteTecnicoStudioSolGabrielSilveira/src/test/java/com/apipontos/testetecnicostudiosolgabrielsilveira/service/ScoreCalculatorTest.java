@@ -45,7 +45,7 @@ public class ScoreCalculatorTest {
     @Test
     void testCalculateCombinationsForNinePoints() {
         int result = scoreCalculator.calculateCombinations(9);
-        assertEquals(2, result, "Esperado 2 combinação para a pontuação 9 (6+3)");
+        assertEquals(2, result, "Esperado 2 combinação para a pontuação 9 (6+3, 3+3+3)");
     }
 
     @Test
